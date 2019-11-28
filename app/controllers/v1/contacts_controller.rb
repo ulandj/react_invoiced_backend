@@ -13,7 +13,7 @@ class V1::ContactsController < ApplicationController
   end
 
   def destroy
-    @contact = Contact.find_by(params[:id])
+    @contact = Contact.find(params[:id])
 
     if @contact.destroy
       head(:ok)
