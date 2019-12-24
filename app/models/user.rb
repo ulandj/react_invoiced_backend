@@ -7,4 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :contacts, inverse_of: :user, dependent: :destroy
+  has_many :accounts, foreign_key: :owner_id
 end
