@@ -12,6 +12,22 @@ module V1
       }
     end
 
+    test 'lists out organizations for @account' do
+      org_one = organizations(:one)
+      org_two = organizations(:another_one)
+
+      get(v1_organizations_path(@account))
+
+      organization_ids = JSON.parse(@response.body)['data'].map do |org|
+        org['id']
+      end
+
+      assert_response :success
+
+      assert_includes organization_ids, org_one.id
+      assert_not_includes organization_ids, org_two.id
+    end
+
     test 'creates account for user' do
       organization_params = {
         name: Faker::Company.name,

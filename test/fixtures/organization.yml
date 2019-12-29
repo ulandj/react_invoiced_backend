@@ -1,7 +1,0 @@
-one:
-  name: <%= Faker::Company.name %>
-  account: artellectual
-
-another_one:
-  name: <%= Faker::Company.name %>
-  account: another_one
