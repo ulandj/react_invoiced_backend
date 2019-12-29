@@ -47,5 +47,21 @@ module V1
 
       assert organization['name'] == organization_params[:name]
     end
+
+    test 'should return unprocessable entity' do
+      organization_params = {
+        name: Faker::Company.name,
+        tax_payer_number: '',
+        address: ''
+      }
+
+      post(
+        v1_organizations_path(@account),
+        headers: @header,
+        params: { organization: organization_params }
+      )
+
+      assert_response :unprocessable_entity
+    end
   end
 end
