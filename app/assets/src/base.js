@@ -1,0 +1,8 @@
+import 'react'
+import 'mobx'
+import 'mobx-react'
+import 'router5'
+import 'router5/plugins/logger'
+import 'router5/plugins/listeners'
+import 'router5/plugins/browser'
+import 'react-router5'
