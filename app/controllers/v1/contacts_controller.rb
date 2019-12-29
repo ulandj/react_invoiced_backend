@@ -2,7 +2,7 @@ class V1::ContactsController < ApplicationController
   include V1::Contacts::Response
 
   def index
-    @contacts = current_account.contacts
+    @contacts = current_scope.contacts
 
     render :index, status: :ok
   end
@@ -30,6 +30,10 @@ class V1::ContactsController < ApplicationController
   end
 
   private
+
+  def current_scope
+    params[:organization_id].present? ? current_organization : current_account
+  end
 
   def current_organization
     @current_organization ||= current_account.organizations.find(params[:organization_id])
