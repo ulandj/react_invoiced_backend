@@ -7,5 +7,4 @@ json.data do
           :confirmed_at
     )
   end
-  json.token token
 end
