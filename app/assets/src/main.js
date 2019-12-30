@@ -8,14 +8,14 @@ import { Auth } from 'stores'
 import { api } from 'fronto-api'
 
 import { Application,
-         store as layout } from './layouts'
+  store as layout } from './layouts'
 
 import createRouter from '../config/router'
 
 
-// MobX enforceActions
+// MobX useStrict
 configure({
-  enforceActions: true
+  enforceActions: "always"
 })
 
 const router = createRouter({ listener: true, logger: true })

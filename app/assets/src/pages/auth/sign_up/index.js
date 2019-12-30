@@ -4,7 +4,7 @@ import { Link } from 'react-router5'
 
 import { Auth } from 'components/page'
 
-// import { User } from 'stores'
+import { User } from 'stores'
 
 import buttons from 'styles/buttons.sass'
 
@@ -13,31 +13,31 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props)
 
-    // const { endpoint } = props
-    //
-    // this.store = new User(endpoint)
+    const { endpoint } = props
+
+    this.store = new User(endpoint)
   }
 
   submitForm = (e) => {
     e.preventDefault()
 
-    // const { router } = this.props
-    //
-    // const params = {
-    //   user: {
-    //     email: this.email.value,
-    //     password: this.password.value,
-    //     password_confirmation: this.password_confirm.value
-    //   }
-    // }
-    //
-    // this.store.create(null, params, {
-    //   200: (body) => {
-    //     const { user } = body.data
-    //
-    //     router.navigate('posts')
-    //   }
-    // })
+    const { router } = this.props
+
+    const params = {
+      user: {
+        email: this.email.value,
+        password: this.password.value,
+        password_confirmation: this.password_confirm.value
+      }
+    }
+
+    this.store.create(null, params, {
+      200: (body) => {
+        const { user } = body.data
+
+        router.navigate('posts')
+      }
+    })
   }
 
   render() {
