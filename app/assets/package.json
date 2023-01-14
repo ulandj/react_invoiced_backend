@@ -65,7 +65,7 @@
     "sugarss": "^1.0.1",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "4.28.1",
-    "webpack-cli": "3.2.1",
+    "webpack-cli": "3.3.12",
     "webpack-dev-server": "3.1.14"
   }
 }
